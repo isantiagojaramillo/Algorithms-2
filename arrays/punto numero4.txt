@@ -1,0 +1,62 @@
+x2 Ejercicio4
+
+     let nombre;
+     let array=[];
+     let bandera =false;
+     let cont =1;
+
+     function mainApp(){
+        if (cont<=5) {
+            addPersona();
+            cont ++;
+        }
+    }
+
+    function addPersona(){
+        nombre=prompt('Por favor ingrese el nombre de la persona');
+        for (const iterator of array) {
+            if (iterator===nombre){
+                console.log("Esta persona ya se encuentra registrada ingrese otra");
+                bandera=true;
+                if (bandera===true) {
+                    addPersona();
+                    bandera=false;
+                }
+            }
+        }
+        if(bandera===false && cont<=5) {
+                array.push(nombre);
+                cont ++;
+                console.log(cont);
+                console.log(array);
+                mainApp();
+        }
+    }
+    mainApp();
+
+//////////////////////////////////////////////////////////////////////
+
+//ejercicio 4 del taller de Array 
+
+let arr = []  //arreglo vacio
+let band = false; //bandera inicializada en false
+let x=4;          //variable de control para que el programa se repita las veces que queremos
+for (i=0;i<=x;i++){ //para recorrer el arreglo
+    nombre=prompt("ingrese nombres "); //variable que el usuario agrega en cada repeticion
+    console.log(arr); //esto solo era para visualizar en consola que se agregaran los nombres al arreglo
+    for(n of arr){ //aca recorro otra vez el arreglo y compruebo si la informacion esta 
+        if(nombre===n){ //condicion
+            band=true; //la bandera se levanta
+            x++; // se suma 1 para que el programa pueda agregar 
+                //el numero de invitados posibles por cada persona
+            alert("el nombre ya esta");//aviso al usuario de que el nombre ya esta repetido
+            if(band===true){ //condicion de que la bandera esta en true
+                break; // se rompre el ciclo de comprobacion y sale al ciclo de recorrido de la variable
+            }
+        }
+    }
+    if(band===false){// condicion fuera del ciclo para agregar las variables nombres en el arreglo
+        arr.push(nombre);//agrega las variables al arreglo
+    }
+    band=false;//se vuelve a poner la bandera en false
+}
